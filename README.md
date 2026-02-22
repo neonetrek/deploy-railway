@@ -28,19 +28,18 @@ This stores player accounts, stats, and game state so they survive redeploys and
 Under **Settings → Networking**:
 
 - Expose port **3000** and generate a public domain (this serves the portal and WebSocket proxy).
-- Optionally expose port **2592** (TCP) for native Netrek clients.
 
 ### 5. Update your config
 
-Once Railway assigns your domain, edit **`config.js`**:
-
-- Set `serverHost` to your Railway domain
-- Set `wsProxy` to `wss://your-domain.up.railway.app/ws`
-- Update server name, location, admin info, etc.
+Edit **`config.json`** — set the server name, location, admin info, motd, and game instances. All server settings live in this single file.
 
 Push the changes — Railway auto-redeploys.
 
-### 6. Get listed
+### 6. Customize game instances (optional)
+
+Each entry in the `instances` array configures a separate game mode with its own port and sysdef rules. See the [Server Configuration](https://github.com/neonetrek/client-server/blob/main/HOSTING.md#server-configuration) reference for all options.
+
+### 7. Get listed
 
 Open a PR to [neonetrek/neonetrek.github.io](https://github.com/neonetrek/neonetrek.github.io) adding your server to `servers.json`. Once merged, it appears on all NeoNetrek portals automatically.
 
